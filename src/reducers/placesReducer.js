@@ -1,7 +1,7 @@
 import { ADD_PLACE } from '../actions/placesActions';
 
 const initialState = {
-  searchHistory: ['New York, USA'],
+  searchHistory: [],
 };
 
 const placesReducer = (state = initialState, action) => {
