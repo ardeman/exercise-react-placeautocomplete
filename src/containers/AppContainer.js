@@ -11,7 +11,7 @@ const AppContainer = ({ searchHistory, dispatchAddPlace }) => {
 
   return (
     <div style={{ padding: "0 50px" }}>
-      <h1>Google Places Demo</h1>
+      <h1>Places AutoComplete</h1>
       <SearchBar onSearch={handleSearch} />
       <SearchHistory history={searchHistory} />
     </div>
