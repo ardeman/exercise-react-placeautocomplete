@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, Button, AutoComplete } from 'antd';
+import { Input, Button, AutoComplete, Space } from 'antd';
 import { fetchMockAutocompleteSuggestions } from '../services/mockAutocompleteService';
 
 const SearchBar = ({ onSearch }) => {
@@ -23,7 +23,7 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div>
+    <Space.Compact>
       <AutoComplete
         value={query}
         options={options}
@@ -38,7 +38,7 @@ const SearchBar = ({ onSearch }) => {
       <Button type="primary" onClick={handleSearch}>
         Search
       </Button>
-    </div>
+    </Space.Compact>
   );
 };
 

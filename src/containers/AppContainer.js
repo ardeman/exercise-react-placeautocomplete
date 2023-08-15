@@ -1,8 +1,8 @@
-import React from 'react';
-import SearchBar from '../components/SearchBar';
-import SearchHistory from '../components/SearchHistory';
-import { addPlace } from '../actions/placesActions';
-import { connect } from 'react-redux';
+import React from "react";
+import SearchBar from "../components/SearchBar";
+import SearchHistory from "../components/SearchHistory";
+import { addPlace } from "../actions/placesActions";
+import { connect } from "react-redux";
 
 const AppContainer = ({ searchHistory, dispatchAddPlace }) => {
   const handleSearch = (place) => {
@@ -10,7 +10,7 @@ const AppContainer = ({ searchHistory, dispatchAddPlace }) => {
   };
 
   return (
-    <div>
+    <div style={{ padding: "0 50px" }}>
       <h1>Google Places Demo</h1>
       <SearchBar onSearch={handleSearch} />
       <SearchHistory history={searchHistory} />
