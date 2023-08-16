@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import { Input, Button, AutoComplete, Space } from 'antd';
-import { fetchMockAutocompleteSuggestions } from '../services/mockAutocompleteService';
+import React, { useState } from "react";
+import { Input, Button, AutoComplete, Space, Form } from "antd";
+import { fetchMockAutocompleteSuggestions } from "../services/mockAutocompleteService";
 
 const SearchBar = ({ onSearch }) => {
-  const [query, setQuery] = useState('');
+  const [form] = Form.useForm();
+  const [query, setQuery] = useState("");
   const [options, setOptions] = useState([]);
 
   const handleSearch = () => {
     onSearch(query);
-    setQuery('');
+    setQuery("");
   };
 
   const handleAutoComplete = async (value) => {
@@ -23,22 +24,24 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <Space.Compact>
-      <AutoComplete
-        value={query}
-        options={options}
-        onSearch={handleAutoComplete}
-        onSelect={(value) => {
-          setQuery(value);
-        }}
-        placeholder="Search for a place..."
-      >
-        <Input />
-      </AutoComplete>
-      <Button type="primary" onClick={handleSearch}>
-        Search
-      </Button>
-    </Space.Compact>
+    <Form form={form} onFinish={handleSearch}>
+      <Space.Compact>
+        <AutoComplete
+          value={query}
+          options={options}
+          onSearch={handleAutoComplete}
+          onSelect={(value) => {
+            setQuery(value);
+          }}
+          placeholder="Search for a place..."
+        >
+          <Input />
+        </AutoComplete>
+        <Button type="primary" onClick={handleSearch}>
+          Search
+        </Button>
+      </Space.Compact>
+    </Form>
   );
 };
 
